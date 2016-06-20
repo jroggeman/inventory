@@ -25,4 +25,7 @@ group :development, :test do
 
   # Better factories
   gem 'factory_girl_rails'
+
+  # Common tests for rails models
+  gem 'shoulda-matchers'
 end
