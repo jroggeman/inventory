@@ -17,5 +17,12 @@ group :development do
 end
 
 group :development, :test do
+  # Debugging
   gem 'byebug'
+
+  # RSpec for testing
+  gem 'rspec-rails'
+
+  # Better factories
+  gem 'factory_girl_rails'
 end
