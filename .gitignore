@@ -14,3 +14,6 @@
 
 # Don't check in database config
 config/database.yml
+
+# Ignore test status file
+spec/examples.txt
