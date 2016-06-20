@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Don't check in database config
+config/database.yml
