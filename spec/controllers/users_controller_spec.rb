@@ -69,4 +69,46 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).to eq(user)
     end
   end
+
+  describe "PATCH update" do
+    before :each do
+      @user = create(:user)
+    end
+
+    context "with valid parameters" do
+      it "should update the parameters" do
+        put :update, id: @user, user: attributes_for(:user, name: "Jim")
+        expect(User.last.name).to eq("Jim")
+      end
+
+      it "should assign the right user" do
+        put :update, id: @user, user: attributes_for(:user, name: "Jim")
+        expect(assigns(:user)).to eq(@user)
+      end
+
+      it "should redirect to the show page" do
+        put :update, id: @user, user: attributes_for(:user, name: "Jim")
+        expect(response).to redirect_to @user
+      end
+    end
+
+    context "with invalid parameters" do
+      it "should assign the right user" do
+        put :update, id: @user, user: attributes_for(:user, name: nil)
+        expect(assigns(:user)).to eq(@user)
+      end
+
+      it "should not update the user" do
+        put :update, id: @user, user: attributes_for(:user, name: nil)
+        @user.reload
+        expect(@user.name).to_not eq(nil)
+      end
+
+      it "should render the edit template" do
+        put :update, id: @user, user: attributes_for(:user, name: nil)
+        expect(response).to render_template "edit"
+      end
+    end
+
+  end
 end
