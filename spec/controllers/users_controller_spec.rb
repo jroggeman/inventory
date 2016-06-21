@@ -1,18 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  describe "GET new" do
-    it "should assign @user" do
-      get :new
-      expect(assigns(:user)).to be_a_new(User)
-    end
-
-    it "should render the new template" do
-      get :new
-      expect(response).to render_template("new")
-    end
-  end
-
   describe "GET show" do
     it "should assign @user" do
       user = create :user
@@ -24,6 +12,18 @@ RSpec.describe UsersController, type: :controller do
       user = create :user
       get :show, id: user
       expect(response).to render_template("show")
+    end
+  end
+
+  describe "GET new" do
+    it "should assign @user" do
+      get :new
+      expect(assigns(:user)).to be_a_new(User)
+    end
+
+    it "should render the new template" do
+      get :new
+      expect(response).to render_template("new")
     end
   end
 
@@ -109,6 +109,22 @@ RSpec.describe UsersController, type: :controller do
         expect(response).to render_template "edit"
       end
     end
+  end
 
+  describe "DElETE destroy" do
+    before :each do
+      @user = create :user
+    end
+
+    it "should assign the right user" do
+      delete :destroy, id: @user
+      expect(assigns(:user)).to eq(@user)
+    end
+
+    it "should delete the user" do
+      expect {
+        delete :destroy, id: @user
+      }.to change(User, :count).by(-1)
+    end
   end
 end
