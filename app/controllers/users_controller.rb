@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :edit]
 
   def new
     @user = User.new
@@ -16,6 +16,9 @@ class UsersController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def edit
   end
 
   private

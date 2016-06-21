@@ -55,4 +55,18 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe "GET edit" do
+    it "should render the edit template" do
+      user = create(:user)
+      get :edit, id: user
+      expect(response).to render_template("edit")
+    end
+
+    it "should assign @user" do
+      user = create(:user)
+      get :edit, id: user
+      expect(assigns(:user)).to eq(user)
+    end
+  end
 end
