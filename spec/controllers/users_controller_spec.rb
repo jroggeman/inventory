@@ -28,6 +28,11 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "POST create" do
+    it "should assign user" do
+      post :create, user: attributes_for(:user)
+      expect(assigns(:user)).to eq(User.last)
+    end
+
     context "with valid attributes" do
       it "should create a new user" do
         # user = build :user
