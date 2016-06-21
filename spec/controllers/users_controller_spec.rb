@@ -126,5 +126,10 @@ RSpec.describe UsersController, type: :controller do
         delete :destroy, id: @user
       }.to change(User, :count).by(-1)
     end
+
+    it "should redirect to new" do
+      delete :destroy, id: @user
+      expect(response).to redirect_to new_user_path
+    end
   end
 end
