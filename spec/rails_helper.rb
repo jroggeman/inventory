@@ -31,6 +31,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.include Capybara::DSL
 end
 
 # Setup shoulda matchers

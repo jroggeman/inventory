@@ -31,4 +31,7 @@ group :development, :test do
 
   # Better integration tests
   gem 'capybara'
+
+  # Open and view page during integration test
+  gem 'launchy'
 end

@@ -7,7 +7,7 @@ RSpec.describe "UserSignups", type: :request do
 
       fill_in 'Email', with: 'bob.schmidt@server.com'
       fill_in 'Password', with: '1234'
-      fill_in 'Password Confirmation', with: '1234'
+      fill_in 'Password confirmation', with: '1234'
       fill_in 'Name', with: 'Bob Schmidt'
 
       click_on 'Register'
