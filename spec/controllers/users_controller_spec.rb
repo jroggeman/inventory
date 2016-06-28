@@ -2,15 +2,18 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe "GET show" do
+    before :each do
+      @user = create :user
+      login_as @user
+    end
+
     it "should assign @user" do
-      user = create :user
-      get :show, id: user
-      expect(assigns(:user)).to eq(user)
+      get :show, id: @user
+      expect(assigns(:user)).to eq(@user)
     end
 
     it "should render the show template" do
-      user = create :user
-      get :show, id: user
+      get :show, id: @user
       expect(response).to render_template("show")
     end
   end
@@ -62,22 +65,26 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "GET edit" do
+    before :each do
+      @user = create(:user)
+      login_as @user
+    end
+
     it "should render the edit template" do
-      user = create(:user)
-      get :edit, id: user
+      get :edit, id: @user
       expect(response).to render_template("edit")
     end
 
     it "should assign @user" do
-      user = create(:user)
-      get :edit, id: user
-      expect(assigns(:user)).to eq(user)
+      get :edit, id: @user
+      expect(assigns(:user)).to eq(@user)
     end
   end
 
   describe "PATCH update" do
     before :each do
       @user = create(:user)
+      login_as @user
     end
 
     context "with valid parameters" do
@@ -119,6 +126,7 @@ RSpec.describe UsersController, type: :controller do
   describe "DElETE destroy" do
     before :each do
       @user = create :user
+      login_as @user
     end
 
     it "should assign the right user" do

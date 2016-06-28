@@ -40,3 +40,7 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+def login_as(user)
+  session[:id] = user.id
+end
