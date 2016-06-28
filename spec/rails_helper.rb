@@ -31,6 +31,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.include Capybara::DSL
 end
 
 # Setup shoulda matchers
@@ -39,4 +41,8 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+def login_as(user)
+  session[:id] = user.id
 end

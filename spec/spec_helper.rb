@@ -1,3 +1,5 @@
+require 'capybara/rspec'
+
 RSpec.configure do |config|
   # Use default assertions
   config.expect_with :rspec do |expectations|

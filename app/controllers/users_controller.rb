@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_authentication only: [:new, :create]
 
   def new
     @user = User.new
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      login_as @user
       redirect_to @user
     else
       render "new"
@@ -41,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    redirect_to root_path if current_user.nil?
+    @user = current_user
   end
 end
