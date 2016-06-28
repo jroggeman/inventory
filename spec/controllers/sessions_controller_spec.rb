@@ -15,12 +15,12 @@ RSpec.describe SessionsController, type: :controller do
       end
 
       it "should redirect to user#show" do
-        post :create, user: attributes_for(:user)
+        post :create, session: attributes_for(:user)
         expect(response).to redirect_to @user
       end
 
       it "should store the user ID in the session" do
-        post :create, user: attributes_for(:user)
+        post :create, session: attributes_for(:user)
         expect(session[:id]).to eq(@user.id)
       end
     end
@@ -31,12 +31,12 @@ RSpec.describe SessionsController, type: :controller do
       end
 
       it "should set session to nil" do
-        post :create, user: attributes_for(:user, password: nil)
+        post :create, session: attributes_for(:user, password: nil)
         expect(session[:id]).to eq(nil)
       end
 
       it "should render the new template" do
-        post :create, user: attributes_for(:user, password: nil)
+        post :create, session: attributes_for(:user, password: nil)
         expect(response).to render_template("new")
       end
     end
