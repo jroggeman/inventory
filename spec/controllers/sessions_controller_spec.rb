@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
+  it "should include authentication concern" do
+    expect(SessionsController.ancestors.include? Authentication).to be true
+  end
+
   describe "GET new" do
     it "should render the new template" do
       get :new
