@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Box, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let :box do
+    build :box
+  end
+
+  subject do
+    box
+  end
+
+  it "should have a name" do
+    expect(box).to validate_presence_of :name
+  end
 end
