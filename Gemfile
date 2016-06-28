@@ -28,4 +28,7 @@ group :development, :test do
 
   # Common tests for rails models
   gem 'shoulda-matchers'
+
+  # Better integration tests
+  gem 'capybara'
 end
