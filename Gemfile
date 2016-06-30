@@ -17,6 +17,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # QR Codes
 gem 'rqrcode-rails3'
 
+# Heroku deployment
+gem 'rails_12factor', group: :production
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
