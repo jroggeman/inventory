@@ -2,3 +2,5 @@
 <strong>Room:</strong> <%= @box.room %><br>
 <strong>Contents:</strong><br>
 <p><%= @box.contents %></p>
+<hr>
+<%= link_to "Edit box", edit_box_path(@box)%>&nbsp;|&nbsp;<%= link_to "Back to boxes", boxes_path %>

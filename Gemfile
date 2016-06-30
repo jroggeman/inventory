@@ -11,6 +11,9 @@ gem 'turbolinks'
 # BCrypt for login
 gem 'bcrypt', '~> 3.1.7'
 
+# Nicer styles
+gem 'bootstrap-sass', '~> 3.3.6'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
