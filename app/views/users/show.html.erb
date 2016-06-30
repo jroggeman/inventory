@@ -1,3 +1,5 @@
 <h1>View User</h1>
 Email: <%= @user.email %><br>
 Name: <%= @user.name %>
+<hr>
+<%= link_to "Edit profile", edit_user_path(current_user) %>
