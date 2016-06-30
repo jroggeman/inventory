@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'boxes#index'
+
   resources :users, except: :index
   resources :boxes
 
