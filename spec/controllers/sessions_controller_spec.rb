@@ -18,9 +18,9 @@ RSpec.describe SessionsController, type: :controller do
         @user = create :user
       end
 
-      it "should redirect to user#show" do
+      it "should redirect to boxes#index" do
         post :create, session: attributes_for(:user)
-        expect(response).to redirect_to @user
+        expect(response).to redirect_to boxes_path
       end
 
       it "should store the user ID in the session" do

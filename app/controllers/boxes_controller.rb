@@ -22,7 +22,7 @@ class BoxesController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.svg { render qrcode: request.url, l: :m, unit: 6 }
+      format.svg { render qrcode: box_path(@box), l: :m, unit: 6 }
     end
   end
 
