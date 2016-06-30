@@ -20,6 +20,10 @@ class BoxesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.svg { render qrcode: request.url, l: :m, unit: 6 }
+    end
   end
 
   def edit
