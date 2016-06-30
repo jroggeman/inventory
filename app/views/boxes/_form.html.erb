@@ -1,0 +1,18 @@
+<%= form_for @box do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <br>
+
+  <%= f.label :room %>
+  <%= f.text_field :room %>
+
+  <br>
+
+  <%= f.label :contents %>
+  <%= f.text_area :contents %>
+
+  <br>
+
+  <%= f.submit "Add box" %>
+<% end %>

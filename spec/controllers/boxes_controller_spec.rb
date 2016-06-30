@@ -24,4 +24,16 @@ RSpec.describe BoxesController, type: :controller do
       expect(assigns(:boxes)).to eq([box])
     end
   end
+
+  describe "GET new" do
+    it "should render the new template" do
+      get :new
+      expect(response).to render_template("new")
+    end
+
+    it "should assign @box" do
+      get :new
+      expect(assigns(:box)).to_not be nil
+    end
+  end
 end

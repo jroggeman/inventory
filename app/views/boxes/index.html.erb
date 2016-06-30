@@ -1,0 +1,10 @@
+<h1>All Boxes</h1>
+<% if @boxes.count > 0 %>
+<ul>
+<% @boxes.each do |box| %>
+  <li><%= link_to box.name, box %></li>
+<% end %>
+</ul>
+<% else %>
+  No boxes here :)
+<% end %>
