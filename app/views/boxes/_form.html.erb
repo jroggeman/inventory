@@ -1,18 +1,18 @@
 <%= form_for @box do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, class: 'form-control' %>
 
   <br>
 
   <%= f.label :room %>
-  <%= f.text_field :room %>
+  <%= f.text_field :room, class: 'form-control' %>
 
   <br>
 
   <%= f.label :contents %>
-  <%= f.text_area :contents %>
+  <%= f.text_area :contents, class: 'form-control' %>
 
   <br>
 
-  <%= f.submit "Add box" %>&nbsp;<%= link_to "Cancel", boxes_path %>
+  <%= f.submit "Add box", class: 'form-control' %>&nbsp;<%= link_to "Cancel", boxes_path %>
 <% end %>
