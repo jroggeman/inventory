@@ -25,7 +25,7 @@ module Authentication
 
   def require_authentication
     unless current_user
-      session[:referrer] = url_for(params)
+      session[:return_to] = url_for(params)
       redirect_to login_url
     end
   end

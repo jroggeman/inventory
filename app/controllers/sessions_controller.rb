@@ -10,8 +10,10 @@ class SessionsController < ApplicationController
     if user && user.authenticate(user_params[:password])
       login_as user
 
-      if session.key?(:referrer)
-        redirect_to session[:referrer]
+      if session.key?(:return_to)
+        url = session[:return_to]
+        session[:return_to] = nil
+        redirect_to url
       else
         redirect_to boxes_path
       end
