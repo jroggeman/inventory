@@ -42,7 +42,6 @@ RSpec.describe UsersController, type: :controller do
 
     context "with valid attributes" do
       it "should create a new user" do
-        # user = build :user
         expect {
           post :create, user: attributes_for(:user)
         }.to change(User, :count).by 1
