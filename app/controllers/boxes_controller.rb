@@ -1,5 +1,5 @@
 class BoxesController < ApplicationController
-  before_action :set_box, only: [:show, :edit, :update]
+  before_action :set_box, only: [:show, :edit, :update, :destroy]
 
   def index
     @boxes = current_user.boxes
@@ -30,6 +30,11 @@ class BoxesController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def destroy
+    @box.destroy!
+    redirect_to boxes_path
   end
 
   private

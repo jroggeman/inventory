@@ -128,4 +128,21 @@ RSpec.describe BoxesController, type: :controller do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    before :each do
+      @box = create :box, user: @user
+    end
+
+    it "should destroy the item" do
+      expect {
+        delete :destroy, id: @box
+      }.to change(Box, :count).by(-1)
+    end
+
+    it "should redirect to box index" do
+      delete :destroy, id: @box
+      expect(response).to redirect_to(boxes_path)
+    end
+  end
 end
