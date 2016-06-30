@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(user_params[:password])
       login_as user
-      redirect_to user
+      redirect_to boxes_path
     else
       render 'new'
     end
