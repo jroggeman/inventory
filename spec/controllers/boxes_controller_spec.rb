@@ -50,13 +50,18 @@ RSpec.describe BoxesController, type: :controller do
     context "with valid parameters" do
       it "should create a new box" do
         expect {
-          post :create, box: attributes_for(:box, user: @user)
+          post :create, box: attributes_for(:box)
         }.to change(Box, :count).by(1)
       end
 
       it "should redirect to the box" do
-        post :create, box: attributes_for(:box, user: @user)
+        post :create, box: attributes_for(:box)
         expect(response).to redirect_to Box.last
+      end
+
+      it "should associated the box with the logged in user" do
+        post :create, box: attributes_for(:box)
+        expect(Box.last.user).to eq(@user)
       end
     end
 

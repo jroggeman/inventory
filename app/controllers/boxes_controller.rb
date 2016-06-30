@@ -11,6 +11,7 @@ class BoxesController < ApplicationController
 
   def create
     box = Box.new(box_params)
+    box.user = current_user
     if box.save
       redirect_to box
     else
